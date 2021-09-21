@@ -8,11 +8,20 @@ library(tidyverse)
 ### DATASETS ###
 ################
 
-ramos <- read.csv2("ses_ramos.csv", sep = ";", dec = ",", header = T)
-grupo.eco <- read.csv2("ses_grupos_economicos.csv", sep = ";", dec = ",", header = T)
-grupo.ramo <- read.csv2("ses_gruposramos.csv", sep = ";", dec = ",", header = T)
-seg <- read.csv2("ses_seguros.csv", sep = ";", dec = ",", header = T)
-seg.uf <- read.csv2("ses_uf2.csv", sep = ";", dec = ",", header = T)
+ramos <- read.csv2("ses_ramos.csv", 
+                   sep = ";", dec = ",", header = T, 
+                   fileEncoding = "latin1")
+grupo.eco <- read.csv2("ses_grupos_economicos.csv", 
+                       sep = ";", dec = ",", header = T,
+                       fileEncoding = "latin1")
+grupo.ramo <- read.csv2("ses_gruposramos.csv", 
+                        sep = ";", dec = ",", header = T,
+                        fileEncoding = "latin1")
+seg <- read.csv2("ses_seguros.csv", 
+                 sep = ";", dec = ",", header = T,
+                 fileEncoding = "latin1")
+seg.uf <- read.csv2("ses_uf2.csv", sep = ";", dec = ",", header = T,
+                    fileEncoding = "latin1")
 
 ###############
 ### AJUSTES ###

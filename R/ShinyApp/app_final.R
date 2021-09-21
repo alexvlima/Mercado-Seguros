@@ -12,8 +12,6 @@ library(scales)
 require(dplyr)
 # Dados -------------------------------------------------------------------
 
-setwd("/Users/alexvlima/Library/Mobile Documents/com~apple~CloudDocs/UnB/Mentoria/Mercado-Seguros/")
-
 dados_prev <- read.csv("DADOS_PREV_.csv",sep = ";")
 dados_prev <- dados_prev %>%
   mutate(prev_contribuicao = stringr::str_replace(prev_contribuicao, ",", "."))%>%
