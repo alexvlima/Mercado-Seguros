@@ -1,12 +1,12 @@
+###################
+### BIBLIOTECAS ###
+###################
 
-library(dplyr)
-library(ggplot2)
 library(tidyverse)
-library(readr)
 
-setwd("C:/Mercado_de_Seguros/BaseCompleta")
-
-
+################
+### DATASETS ###
+################
 
 ramos <- read.csv2("ses_ramos.csv", sep = ";", dec = ",", header = T)
 grupo.eco <- read.csv2("ses_grupos_economicos.csv", sep = ";", dec = ",", header = T)
@@ -14,17 +14,18 @@ grupo.ramo <- read.csv2("ses_gruposramos.csv", sep = ";", dec = ",", header = T)
 seg <- read.csv2("ses_seguros.csv", sep = ";", dec = ",", header = T)
 seg.uf <- read.csv2("ses_uf2.csv", sep = ";", dec = ",", header = T)
 
+###############
+### AJUSTES ###
+###############
+
 ramos <- ramos %>% 
   mutate(graid = substr(ramos$noramo, 1, 2))
 
 ramos$graid <- as.numeric(ramos$graid)
 
-
 grupo.eco <- grupo.eco %>% 
   mutate(ano = substr(grupo.eco$damesano, 1, 4),
          mes = substr(grupo.eco$damesano, 5, 6))
-
-
 
 #SEGUROS GERAL
 
