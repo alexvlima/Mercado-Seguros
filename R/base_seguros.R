@@ -66,7 +66,7 @@ base <-
 rm(gr_ramo)
 
 # Acrescenta o ano
-base_seguros$ano <- base_seguros$damesano%/%100
+base$ano <- base$damesano%/%100
 
 ##############
 ### EXPORT ###
