@@ -43,6 +43,7 @@ seguros <-
   seguros %>%
   filter(damesano > 201500)
 
+# Acrescenta as informações de entidade e ramo #
 base <- 
   seguros %>%
   left_join(entidade, by = c("coenti" = "coenti", 
@@ -52,14 +53,21 @@ base <-
 
 rm(seguros, entidade, ramos)
 
-
+# Ajuste para pegar o grupo do ramo #
 base$GRAID <- as.numeric(substr(base$noramo, 1, 2))
 
-glimpse(base)
-glimpse(gr_ramo)
+# Acrescenta a info do grupo do ramo #
+base <- 
+  base %>%
+  left_join(gr_ramo, by = "GRAID") %>%
+  mutate(gr_ramo = GRANOME) %>%
+  dplyr::select(-GRAID, -GRANOME, -GRACODIGO)
 
-base %>%
-  dplyr::select(noramo, GRAID) %>%
-  print()
+rm(gr_ramo)
 
+##############
+### EXPORT ###
+##############
 
+write.csv2(base, "~/Documents/GitHub/Mercado-Seguros/Dataset/base_seguros.csv",
+           fileEncoding = "latin1")
