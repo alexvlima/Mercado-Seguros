@@ -65,9 +65,12 @@ base <-
 
 rm(gr_ramo)
 
+# Acrescenta o ano
+base_seguros$ano <- base_seguros$damesano%/%100
+
 ##############
 ### EXPORT ###
 ##############
 
 write.csv2(base, "~/Documents/GitHub/Mercado-Seguros/Dataset/base_seguros.csv",
-           fileEncoding = "latin1")
+           fileEncoding = "latin1", row.names = FALSE)
