@@ -1,3 +1,10 @@
+############
+### PATH ###
+############
+
+# getwd()
+setwd("/Users/alexvlima/Documents/GitHub/Mercado-Seguros/")
+
 #################
 ### LIBRARIES ###
 #################
@@ -10,7 +17,7 @@ library(tidyverse)
 
 # rm(list = ls())
 
-base_seguros <- read.csv2("~/Documents/GitHub/Mercado-Seguros/Dataset/base_seguros.csv",
+base_seguros <- read.csv2("Dataset/base_seguros.csv",
                           fileEncoding = "latin1")
 
 glimpse(base_seguros)
